@@ -1,7 +1,11 @@
 import * as S from './Home.style'
 import { css } from '@emotion/react'
+import useCofix from './useCofix'
 
 function Home() {
+  const { rows } = useCofix()
+  console.log('@@rows', rows)
+
   return (
     <S.Container>
       Home
