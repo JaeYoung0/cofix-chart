@@ -25,7 +25,8 @@ export default async (
       const $ = cheerio.load(htmlString)
       const data: ShortTermCofixRow[] = []
 
-      $(targetContext).each((_, el) => {
+      $(targetContext).each((idx, el) => {
+        if (idx === 0) return // ignore title row
         const tds = $(el).find('td')
         const period = $(tds[1]).text() // "2022/11/12 ~ 2022/11/18"
         const [startDate, endDate] = period.split(' ~ ')
@@ -34,7 +35,7 @@ export default async (
         data.push(tableRow)
       })
 
-      res.status(200).json({ result: data })
+      res.status(200).json({ result: data.reverse() })
     } catch (error) {
       res.status(404).end()
     }
