@@ -1,5 +1,11 @@
 # Cofix-chart
+
 ## COFIX 공시를 chart로 보여주는 웹
-1. cheerio로 https://portal.kfb.or.kr/fingoods/cofix.php?BasicYear=2022&BasicYear_W=2022 같은 사이트의 데이터를 긁어온다. [ ]
-2. 이를 api routes에서 response로 내려준다. [ ]
-3. 브라우저에서는 chart.js로 시각화한다.
+
+1. cheerio로 [은행연합회 사이트](https://portal.kfb.or.kr/fingoods/cofix.php?BasicYear=2022&BasicYear_W=2022)의 데이터를 긁어서 api를 만들어준다. [ O ]
+2. 데이터를 chart.js로 시각화한다. [ ]
+
+## 참고
+
+- https://dev.to/mtliendo/create-a-public-api-by-web-scraping-in-nextjs-2f5n
+- https://www.zenrows.com/blog/web-scraping-cheerio#write-the-code
