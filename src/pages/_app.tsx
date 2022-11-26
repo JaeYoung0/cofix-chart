@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Next.js Starter</title>
+        <title>Cofix Chart</title>
         <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1" />
       </Head>
       <Global styles={resetStyle} />
