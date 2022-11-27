@@ -8,8 +8,8 @@ import {
   Legend,
 } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
-import { CofixRow } from '../api/cofix'
-import useCofix from './useCofix'
+import { CofixRow } from '../pages/api/cofix'
+import useCofix from '../hooks/useCofix'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
