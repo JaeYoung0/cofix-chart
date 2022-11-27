@@ -1,24 +1,38 @@
 import { useEffect, useState } from 'react'
-import { ShortTermCofixRow } from '@/pages/api/cofix'
+import type { CofixRow } from '@/pages/api/cofix'
 
 function useCofix() {
-  const [rows, setRows] = useState<ShortTermCofixRow[]>([])
+  const [shortCofixRows, setShortCofixRows] = useState<CofixRow[]>([])
+  const [newCofixRows, setNewCofixRows] = useState<CofixRow[]>([])
 
   useEffect(() => {
-    const fetchRows = async () => {
-      const query = `?year=2022`
+    const fetchShortCofixRows = async () => {
+      const query = `?year=2022&cofixType=short`
       const response = (await fetch(`/api/cofix${query}`).then((res) => res.json())) as {
-        result: ShortTermCofixRow[]
+        result: CofixRow[]
       }
 
       const result = response.result
-      setRows(result)
+      setShortCofixRows(result)
     }
-
-    void fetchRows()
+    void fetchShortCofixRows()
   }, [])
 
-  return { rows }
+  useEffect(() => {
+    const fetchNewCofixRows = async () => {
+      const query = `?year=2022&cofixType=new`
+      const response = (await fetch(`/api/cofix${query}`).then((res) => res.json())) as {
+        result: CofixRow[]
+      }
+
+      const result = response.result
+      setNewCofixRows(result)
+    }
+
+    void fetchNewCofixRows()
+  }, [])
+
+  return { shortCofixRows, newCofixRows }
 }
 
 export default useCofix
