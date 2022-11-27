@@ -4,15 +4,38 @@ import * as S from './HomeView.style'
 
 function HomeView() {
   return (
-    <S.Container>
-      <S.Wrapper>
-        <CofixChart.New />
-      </S.Wrapper>
+    <S.Layout>
+      <S.SideNavigation>
+        <S.MenuItem>A</S.MenuItem>
+        <S.MenuItem>A</S.MenuItem>
+        <S.MenuItem>A</S.MenuItem>
+      </S.SideNavigation>
+      <S.Grid>
+        <S.Item>
+          <CofixChart.New />
+        </S.Item>
 
-      <S.Wrapper>
-        <CofixChart.Short />
-      </S.Wrapper>
-    </S.Container>
+        <S.Item>
+          <CofixChart.New />
+        </S.Item>
+
+        <S.Item>
+          <CofixChart.New />
+        </S.Item>
+
+        <S.Item>
+          <CofixChart.Short />
+        </S.Item>
+
+        <S.Item>
+          <CofixChart.Short />
+        </S.Item>
+
+        <S.Item>
+          <CofixChart.Short />
+        </S.Item>
+      </S.Grid>
+    </S.Layout>
   )
 }
 
