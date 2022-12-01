@@ -1,6 +1,6 @@
+import { CofixRow, CofixType } from '@/domain/cofix'
 import { NextApiRequest, NextApiResponse } from 'next'
 import * as cheerio from 'cheerio'
-import { CofixType } from '../../ui/components/CofixChart'
 
 // utils
 const getTargetContext = (cofixType: CofixType) => {
@@ -11,12 +11,6 @@ const getTargetContext = (cofixType: CofixType) => {
     return `#Content > div.contentArea > div:nth-child(6) > table > tbody > tr`
   else if (cofixType === 'short')
     return `#Content > div.contentArea > div:nth-child(10) > table > tbody > tr`
-}
-
-export type CofixRow = {
-  startDate: string // YYYY/MM/DD
-  endDate: string // YYYY/MM/DD
-  value: string // 1.98
 }
 
 export default async (
