@@ -8,8 +8,8 @@ import {
   Legend,
 } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
-import { CofixRow } from '../../pages/api/cofix'
-import useCofix from '../../hooks/useCofix'
+import { CofixRow } from '@/domain/cofix'
+import { useCofix } from '@/services/cofixAdapter'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
@@ -25,7 +25,8 @@ const options = {
 const getData = (rows: CofixRow[]) => rows.map((item) => item.value)
 
 function ShortCofixChart() {
-  const { shortCofixRows: rows } = useCofix()
+  const { data: rows } = useCofix({ year: 2022, cofixType: 'short' })
+  if (!rows) return null
 
   const getLabels = (rows: CofixRow[]) =>
     rows.map((item) => {
@@ -48,7 +49,9 @@ function ShortCofixChart() {
 }
 
 function NewCofixChart() {
-  const { newCofixRows: rows } = useCofix()
+  const { data: rows } = useCofix({ year: 2022, cofixType: 'new' })
+
+  if (!rows) return null
 
   const getLabels = (rows: CofixRow[]) =>
     rows.map((item) => {
@@ -69,8 +72,6 @@ function NewCofixChart() {
 
   return <Bar options={options} data={data} />
 }
-
-export type CofixType = Lowercase<keyof typeof CofixChart>
 
 const CofixChart = {
   Short: ShortCofixChart,

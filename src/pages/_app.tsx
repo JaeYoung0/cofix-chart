@@ -2,8 +2,11 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Global } from '@emotion/react'
 import { resetStyle } from '@/styles/resetStyle'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const queryClient = new QueryClient()
+
   return (
     <>
       <Head>
@@ -11,7 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1" />
       </Head>
       <Global styles={resetStyle} />
-      <Component {...pageProps} />
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+      </QueryClientProvider>
     </>
   )
 }
