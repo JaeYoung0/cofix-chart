@@ -2,11 +2,12 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Global } from '@emotion/react'
 import { resetStyle } from '@/styles/resetStyle'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider, Hydrate, DehydratedState } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { useState } from 'react'
 
-function MyApp({ Component, pageProps }: AppProps) {
+type PageProps = { dehydratedState: DehydratedState }
+function MyApp({ Component, pageProps }: AppProps<PageProps>) {
   const [queryClient] = useState(() => new QueryClient())
 
   return (
@@ -17,7 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <Global styles={resetStyle} />
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <Hydrate state={pageProps.dehydratedState}>
+          <Component {...pageProps} />
+        </Hydrate>
         <ReactQueryDevtools initialIsOpen={true} />
       </QueryClientProvider>
     </>
