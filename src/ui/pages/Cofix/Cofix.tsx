@@ -1,15 +1,12 @@
+import CofixChart from '@/ui/components/CofixChart'
+import BasicLayout from '@/ui/layouts/BasicLayout'
 import React from 'react'
-import CofixChart from '../../components/CofixChart'
-import * as S from './HomeView.style'
 
-function HomeView() {
+import * as S from './style'
+
+function Cofix() {
   return (
-    <S.Layout>
-      <S.SideNavigation>
-        <S.MenuItem>A</S.MenuItem>
-        <S.MenuItem>A</S.MenuItem>
-        <S.MenuItem>A</S.MenuItem>
-      </S.SideNavigation>
+    <BasicLayout>
       <S.Grid>
         <S.Item>
           <CofixChart.New />
@@ -35,8 +32,8 @@ function HomeView() {
           <CofixChart.Short />
         </S.Item>
       </S.Grid>
-    </S.Layout>
+    </BasicLayout>
   )
 }
 
-export default HomeView
+export default Cofix
