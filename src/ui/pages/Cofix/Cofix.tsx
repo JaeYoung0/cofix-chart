@@ -1,6 +1,5 @@
 import CofixChart from '@/ui/components/CofixChart'
 import BasicLayout from '@/ui/layouts/BasicLayout'
-import React from 'react'
 
 import * as S from './style'
 
