@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import * as cheerio from 'cheerio'
-import { CofixType } from '../../components/CofixChart'
+import { CofixType } from '../../ui/components/CofixChart'
 
 // utils
 const getTargetContext = (cofixType: CofixType) => {

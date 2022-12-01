@@ -146,4 +146,7 @@ export const resetStyle = css`
   a {
     text-decoration: none;
   }
+  html {
+    font-size: 10px;
+  }
 `
