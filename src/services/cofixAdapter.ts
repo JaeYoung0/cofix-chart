@@ -6,10 +6,9 @@ export function useCofix({ year, cofixType }: { year: number; cofixType: CofixTy
   const query = `?year=${year}&cofixType=${cofixType}`
 
   return useQuery({
-    queryKey: [year, cofixType],
-    queryFn: (ctx) => {
-      console.log('@@ctx', ctx)
-      return fetchCofix(query)
-    },
+    queryKey: [cofixType, year],
+    queryFn: () => fetchCofix(query),
+    refetchOnMount: false,
+    // staleTime: 60 * 1000, // 1분, default 0
   })
 }

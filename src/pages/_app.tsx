@@ -4,9 +4,10 @@ import { Global } from '@emotion/react'
 import { resetStyle } from '@/styles/resetStyle'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { useState } from 'react'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const queryClient = new QueryClient()
+  const [queryClient] = useState(() => new QueryClient())
 
   return (
     <>
