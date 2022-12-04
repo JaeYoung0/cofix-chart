@@ -29,6 +29,7 @@ export const SideNavigation = styled.aside`
 
 export const Main = styled.main`
   width: 100%;
+  height: 100%;
 `
 
 export const MenuItem = styled.button`

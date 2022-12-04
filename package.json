@@ -25,6 +25,7 @@
     "axios": "^1.2.0",
     "chart.js": "^4.0.1",
     "cheerio": "^1.0.0-rc.12",
+    "dayjs": "^1.11.6",
     "next": "^13.0.5",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.0.1",
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.1.1",
+    "@svgr/webpack": "^6.5.1",
     "@types/chart.js": "^2.9.37",
     "@types/cheerio": "^0.22.31",
     "@types/node": "18.0.6",

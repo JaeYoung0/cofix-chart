@@ -24,6 +24,6 @@
     "jsxImportSource": "@emotion/react", // https://github.com/emotion-js/emotion/issues/1249
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/@types/svg.type.d.ts"],
   "exclude": ["node_modules"]
 }
